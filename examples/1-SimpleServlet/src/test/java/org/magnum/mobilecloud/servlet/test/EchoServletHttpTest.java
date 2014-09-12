@@ -1,10 +1,10 @@
 package org.magnum.mobilecloud.servlet.test;
-import static org.junit.Assert.assertEquals;
+
+import org.apache.commons.io.IOUtils;
 
 import java.net.URL;
 
-import org.apache.commons.io.IOUtils;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 /**
  * 
@@ -31,7 +31,7 @@ public class EchoServletHttpTest {
 	 * 
 	 * @throws Exception
 	 */
-	@Test
+	@org.junit.Test
 	public void testMsgEchoing() throws Exception {
 		// The message to send to the EchoServlet
 		String msg = "1234";

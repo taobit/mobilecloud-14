@@ -1,13 +1,5 @@
 package org.magnum.mobilecloud.servlet.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 import org.apache.commons.io.IOUtils;
 import org.apache.http.Consts;
 import org.apache.http.HttpResponse;
@@ -20,6 +12,14 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.junit.Test;
 import org.magnum.mobilecloud.video.servlet.VideoServlet;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -170,7 +170,7 @@ public class VideoServletHttpTest {
 		
 		// Populate the request with the name value pairs that we want to
 		// send to the server representing our Video data
-		List<NameValuePair> params = new ArrayList<>();
+		List<NameValuePair> params = new ArrayList<NameValuePair>();
 		params.add(new BasicNameValuePair("name", title));
 		params.add(new BasicNameValuePair("url", videoUrl));
 		params.add(new BasicNameValuePair("duration", "" + duration));

@@ -26,53 +26,50 @@ import java.net.URL;
 import org.apache.commons.lang3.text.WordUtils;
 
 /**
- * This class allows you to estimate the score for your solution before handing it in.
+ * This class allows you to estimate the score for your solution before handing
+ * it in.
  * 
- * This class also generates the required submission package to hand your solution in.
+ * This class also generates the required submission package to hand your
+ * solution in.
  * 
- * In order to run this AutoGrading application, in Eclipse, Right-click on it->Run As->Java Application
+ * In order to run this AutoGrading application, in Eclipse, Right-click on
+ * it->Run As->Java Application
  * 
  * 
- * Please read the instructions that the application prints very carefully. It will store the generated
- * solution submission packages in the coursera-submission folder within the project directory. After running
- * this application, you will need to right-click on the root of the project in Eclipse->Refresh to see this 
- * folder inside of Eclipse. Each time that you run this application, it generates a new unique submission
- * package. Make sure that you submit the correct (e.g., most up to date) package when you turn your assignment
- * in.
+ * Please read the instructions that the application prints very carefully. It
+ * will store the generated solution submission packages in the
+ * coursera-submission folder within the project directory. After running this
+ * application, you will need to right-click on the root of the project in
+ * Eclipse->Refresh to see this folder inside of Eclipse. Each time that you run
+ * this application, it generates a new unique submission package. Make sure
+ * that you submit the correct (e.g., most up to date) package when you turn
+ * your assignment in.
  * 
  * @author jules
  *
- *                       DO NOT MODIFY THIS CLASS
-                    ___                    ___           ___                            
-     _____         /\  \                  /\  \         /\  \                           
-    /::\  \       /::\  \                 \:\  \       /::\  \         ___              
-   /:/\:\  \     /:/\:\  \                 \:\  \     /:/\:\  \       /\__\             
-  /:/  \:\__\   /:/  \:\  \            _____\:\  \   /:/  \:\  \     /:/  /             
- /:/__/ \:|__| /:/__/ \:\__\          /::::::::\__\ /:/__/ \:\__\   /:/__/              
- \:\  \ /:/  / \:\  \ /:/  /          \:\~~\~~\/__/ \:\  \ /:/  /  /::\  \              
-  \:\  /:/  /   \:\  /:/  /            \:\  \        \:\  /:/  /  /:/\:\  \             
-   \:\/:/  /     \:\/:/  /              \:\  \        \:\/:/  /   \/__\:\  \            
-    \::/  /       \::/  /                \:\__\        \::/  /         \:\__\           
-     \/__/         \/__/                  \/__/         \/__/           \/__/           
-      ___           ___                                     ___                         
-     /\  \         /\  \         _____                     /\__\                        
-    |::\  \       /::\  \       /::\  \       ___         /:/ _/_         ___           
-    |:|:\  \     /:/\:\  \     /:/\:\  \     /\__\       /:/ /\__\       /|  |          
-  __|:|\:\  \   /:/  \:\  \   /:/  \:\__\   /:/__/      /:/ /:/  /      |:|  |          
- /::::|_\:\__\ /:/__/ \:\__\ /:/__/ \:|__| /::\  \     /:/_/:/  /       |:|  |          
- \:\~~\  \/__/ \:\  \ /:/  / \:\  \ /:/  / \/\:\  \__  \:\/:/  /      __|:|__|          
-  \:\  \        \:\  /:/  /   \:\  /:/  /   ~~\:\/\__\  \::/__/      /::::\  \          
-   \:\  \        \:\/:/  /     \:\/:/  /       \::/  /   \:\  \      ~~~~\:\  \         
-    \:\__\        \::/  /       \::/  /        /:/  /     \:\__\          \:\__\        
-     \/__/         \/__/         \/__/         \/__/       \/__/           \/__/        
-*/
+ *         DO NOT MODIFY THIS CLASS ___ ___ ___ _____ /\ \ /\ \ /\ \ /::\ \ /::\
+ *         \ \:\ \ /::\ \ ___ /:/\:\ \ /:/\:\ \ \:\ \ /:/\:\ \ /\__\ /:/ \:\__\
+ *         /:/ \:\ \ _____\:\ \ /:/ \:\ \ /:/ / /:/__/ \:|__| /:/__/ \:\__\
+ *         /::::::::\__\ /:/__/ \:\__\ /:/__/ \:\ \ /:/ / \:\ \ /:/ /
+ *         \:\~~\~~\/__/ \:\ \ /:/ / /::\ \ \:\ /:/ / \:\ /:/ / \:\ \ \:\ /:/ /
+ *         /:/\:\ \ \:\/:/ / \:\/:/ / \:\ \ \:\/:/ / \/__\:\ \ \::/ / \::/ /
+ *         \:\__\ \::/ / \:\__\ \/__/ \/__/ \/__/ \/__/ \/__/ ___ ___ ___ /\ \
+ *         /\ \ _____ /\__\ |::\ \ /::\ \ /::\ \ ___ /:/ _/_ ___ |:|:\ \ /:/\:\
+ *         \ /:/\:\ \ /\__\ /:/ /\__\ /| | __|:|\:\ \ /:/ \:\ \ /:/ \:\__\
+ *         /:/__/ /:/ /:/ / |:| | /::::|_\:\__\ /:/__/ \:\__\ /:/__/ \:|__| /::\
+ *         \ /:/_/:/ / |:| | \:\~~\ \/__/ \:\ \ /:/ / \:\ \ /:/ / \/\:\ \__
+ *         \:\/:/ / __|:|__| \:\ \ \:\ /:/ / \:\ /:/ / ~~\:\/\__\ \::/__/ /::::\
+ *         \ \:\ \ \:\/:/ / \:\/:/ / \::/ / \:\ \ ~~~~\:\ \ \:\__\ \::/ / \::/ /
+ *         /:/ / \:\__\ \:\__\ \/__/ \/__/ \/__/ \/__/ \/__/ \/__/
+ */
 public class AutoGrading {
 
 	private static final String GET = "GET";
 
 	public static void main(String[] args) throws Exception {
 
-		// Ensure that this application is run within the correct working directory
+		// Ensure that this application is run within the correct working
+		// directory
 		File f = new File("./src/main/java/org/magnum/dataup/Application.java");
 		if (!f.exists()) {
 			System.out
