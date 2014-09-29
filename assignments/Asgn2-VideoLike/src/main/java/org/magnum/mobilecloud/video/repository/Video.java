@@ -1,30 +1,45 @@
 package org.magnum.mobilecloud.video.repository;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import com.google.common.base.Objects;
 
 /**
  * A simple object to represent a video and its URL for viewing.
  * 
- * You probably need to, at a minimum, add some annotations to this
- * class.
+ * You probably need to, at a minimum, add some annotations to this class.
  * 
- * You are free to add annotations, members, and methods to this
- * class. However, you probably should not change the existing
- * methods or member variables. If you do change them, you need
- * to make sure that they are serialized into JSON in a way that
- * matches what is expected by the auto-grader.
+ * You are free to add annotations, members, and methods to this class. However,
+ * you probably should not change the existing methods or member variables. If
+ * you do change them, you need to make sure that they are serialized into JSON
+ * in a way that matches what is expected by the auto-grader.
  * 
  * @author mitchell
  */
+@Entity
 public class Video {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 
 	private String name;
 	private String url;
 	private long duration;
 	private long likes;
-	
+
+	@ElementCollection
+	@CollectionTable(name = "likers")
+	private Set<String> likers = new HashSet<String>();;
+
 	public Video() {
 	}
 
@@ -71,11 +86,34 @@ public class Video {
 	public long getLikes() {
 		return likes;
 	}
-	
+
 	public void setLikes(long likes) {
 		this.likes = likes;
 	}
+
+	public Set<String> getLikers() {
+		return likers;
+	}
+
+	public void setLikers(Set<String> likers) {
+		this.likers = likers;
+	}
 	
+	public void removeLiker(String user){
+		likers.remove(user);
+		likes--;
+	}
+
+	public void addLiker(String user) {
+		this.likers.add(user);
+		likes++;
+	}
+
+	public void unLiker(String user) {
+		this.likers.remove(user);
+		likes--;
+	}
+
 	/**
 	 * Two Videos will generate the same hashcode if they have exactly the same
 	 * values for their name, url, and duration.

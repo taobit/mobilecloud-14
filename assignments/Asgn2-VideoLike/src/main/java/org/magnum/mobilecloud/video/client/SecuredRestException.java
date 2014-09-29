@@ -10,8 +10,8 @@ package org.magnum.mobilecloud.video.client;
  * A special class made to specify exceptions that are thrown by our
  * SecuredRestBuilder.
  * 
- * A more robust implementation would probably have fields for tracking
- * the type of exception (e.g., bad password, etc.).
+ * A more robust implementation would probably have fields for tracking the type
+ * of exception (e.g., bad password, etc.).
  * 
  * @author jules
  *

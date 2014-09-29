@@ -31,53 +31,50 @@ import org.magnum.mobilecloud.integration.test.InternalAutoGradingTest;
 import org.magnum.mobilecloud.integration.test.UnsafeHttpsClient;
 
 /**
- * This class allows you to estimate the score for your solution before handing it in.
+ * This class allows you to estimate the score for your solution before handing
+ * it in.
  * 
- * This class also generates the required submission package to hand your solution in.
+ * This class also generates the required submission package to hand your
+ * solution in.
  * 
- * In order to run this AutoGrading application, in Eclipse, Right-click on it->Run As->Java Application
+ * In order to run this AutoGrading application, in Eclipse, Right-click on
+ * it->Run As->Java Application
  * 
  * 
- * Please read the instructions that the application prints very carefully. It will store the generated
- * solution submission packages in the coursera-submission folder within the project directory. After running
- * this application, you will need to right-click on the root of the project in Eclipse->Refresh to see this 
- * folder inside of Eclipse. Each time that you run this application, it generates a new unique submission
- * package. Make sure that you submit the correct (e.g., most up to date) package when you turn your assignment
- * in.
+ * Please read the instructions that the application prints very carefully. It
+ * will store the generated solution submission packages in the
+ * coursera-submission folder within the project directory. After running this
+ * application, you will need to right-click on the root of the project in
+ * Eclipse->Refresh to see this folder inside of Eclipse. Each time that you run
+ * this application, it generates a new unique submission package. Make sure
+ * that you submit the correct (e.g., most up to date) package when you turn
+ * your assignment in.
  * 
  * @author jules
  *
- *                       DO NOT MODIFY THIS CLASS
-                    ___                    ___           ___                            
-     _____         /\  \                  /\  \         /\  \                           
-    /::\  \       /::\  \                 \:\  \       /::\  \         ___              
-   /:/\:\  \     /:/\:\  \                 \:\  \     /:/\:\  \       /\__\             
-  /:/  \:\__\   /:/  \:\  \            _____\:\  \   /:/  \:\  \     /:/  /             
- /:/__/ \:|__| /:/__/ \:\__\          /::::::::\__\ /:/__/ \:\__\   /:/__/              
- \:\  \ /:/  / \:\  \ /:/  /          \:\~~\~~\/__/ \:\  \ /:/  /  /::\  \              
-  \:\  /:/  /   \:\  /:/  /            \:\  \        \:\  /:/  /  /:/\:\  \             
-   \:\/:/  /     \:\/:/  /              \:\  \        \:\/:/  /   \/__\:\  \            
-    \::/  /       \::/  /                \:\__\        \::/  /         \:\__\           
-     \/__/         \/__/                  \/__/         \/__/           \/__/           
-      ___           ___                                     ___                         
-     /\  \         /\  \         _____                     /\__\                        
-    |::\  \       /::\  \       /::\  \       ___         /:/ _/_         ___           
-    |:|:\  \     /:/\:\  \     /:/\:\  \     /\__\       /:/ /\__\       /|  |          
-  __|:|\:\  \   /:/  \:\  \   /:/  \:\__\   /:/__/      /:/ /:/  /      |:|  |          
- /::::|_\:\__\ /:/__/ \:\__\ /:/__/ \:|__| /::\  \     /:/_/:/  /       |:|  |          
- \:\~~\  \/__/ \:\  \ /:/  / \:\  \ /:/  / \/\:\  \__  \:\/:/  /      __|:|__|          
-  \:\  \        \:\  /:/  /   \:\  /:/  /   ~~\:\/\__\  \::/__/      /::::\  \          
-   \:\  \        \:\/:/  /     \:\/:/  /       \::/  /   \:\  \      ~~~~\:\  \         
-    \:\__\        \::/  /       \::/  /        /:/  /     \:\__\          \:\__\        
-     \/__/         \/__/         \/__/         \/__/       \/__/           \/__/        
-*/
+ *         DO NOT MODIFY THIS CLASS ___ ___ ___ _____ /\ \ /\ \ /\ \ /::\ \ /::\
+ *         \ \:\ \ /::\ \ ___ /:/\:\ \ /:/\:\ \ \:\ \ /:/\:\ \ /\__\ /:/ \:\__\
+ *         /:/ \:\ \ _____\:\ \ /:/ \:\ \ /:/ / /:/__/ \:|__| /:/__/ \:\__\
+ *         /::::::::\__\ /:/__/ \:\__\ /:/__/ \:\ \ /:/ / \:\ \ /:/ /
+ *         \:\~~\~~\/__/ \:\ \ /:/ / /::\ \ \:\ /:/ / \:\ /:/ / \:\ \ \:\ /:/ /
+ *         /:/\:\ \ \:\/:/ / \:\/:/ / \:\ \ \:\/:/ / \/__\:\ \ \::/ / \::/ /
+ *         \:\__\ \::/ / \:\__\ \/__/ \/__/ \/__/ \/__/ \/__/ ___ ___ ___ /\ \
+ *         /\ \ _____ /\__\ |::\ \ /::\ \ /::\ \ ___ /:/ _/_ ___ |:|:\ \ /:/\:\
+ *         \ /:/\:\ \ /\__\ /:/ /\__\ /| | __|:|\:\ \ /:/ \:\ \ /:/ \:\__\
+ *         /:/__/ /:/ /:/ / |:| | /::::|_\:\__\ /:/__/ \:\__\ /:/__/ \:|__| /::\
+ *         \ /:/_/:/ / |:| | \:\~~\ \/__/ \:\ \ /:/ / \:\ \ /:/ / \/\:\ \__
+ *         \:\/:/ / __|:|__| \:\ \ \:\ /:/ / \:\ /:/ / ~~\:\/\__\ \::/__/ /::::\
+ *         \ \:\ \ \:\/:/ / \:\/:/ / \::/ / \:\ \ ~~~~\:\ \ \:\__\ \::/ / \::/ /
+ *         /:/ / \:\__\ \:\__\ \/__/ \/__/ \/__/ \/__/ \/__/ \/__/
+ */
 public class AutoGrading {
-
 
 	public static void main(String[] args) throws Exception {
 
-		// Ensure that this application is run within the correct working directory
-		File f = new File("./src/main/java/org/magnum/mobilecloud/video/Application.java");
+		// Ensure that this application is run within the correct working
+		// directory
+		File f = new File(
+				"./src/main/java/org/magnum/mobilecloud/video/Application.java");
 		if (!f.exists()) {
 			System.out
 					.println(WordUtils
@@ -92,14 +89,13 @@ public class AutoGrading {
 		// Ensure that the server is running and accessible on port 8443
 		try {
 			HttpClient client = UnsafeHttpsClient.createUnsafeClient();
-			HttpResponse response = 
-					client.execute(new HttpHost("127.0.0.1", 8443), new BasicHttpRequest("GET", "/"));
-			
+			HttpResponse response = client.execute(new HttpHost("127.0.0.1",
+					8443), new BasicHttpRequest("GET", "/"));
+
 			response.getStatusLine();
-		} catch (NoHttpResponseException e) { 
-			  // The server may have returned some JSON object
-		}
-		catch (Exception e) {
+		} catch (NoHttpResponseException e) {
+			// The server may have returned some JSON object
+		} catch (Exception e) {
 			System.out
 					.println(WordUtils
 							.wrap("Unable to connect to your server on https://localhost:8443. Are you sure the server is running? "
@@ -112,7 +108,7 @@ public class AutoGrading {
 									80));
 			System.exit(1);
 		}
-		
+
 		HandinUtil.generateHandinPackage("Asgn2", new File("./"),
 				InternalAutoGradingTest.class);
 	}

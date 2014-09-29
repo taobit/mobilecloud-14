@@ -34,7 +34,7 @@ import com.google.gson.JsonObject;
 
 /**
  * A Builder class for a Retrofit REST Adapter. Extends the default implementation by providing logic to
- * handle an OAuth 2.0 password grant login flow. The RestAdapter that it produces uses an interceptor
+ * handle an OAuth 2.0 password grant login flow. The RestAdapter that it produces uses an intercepter
  * to automatically obtain a bearer token from the authorization server and insert it into all client
  * requests.
  * 
